@@ -8,9 +8,22 @@
 </head>
 <body>
     <label class="label">
-        <input type="file" required/>
+        <input type="file" accept=".png" required id="fileInput"/>
         <span>Select a file</span>
       </label>
+      <button onclick="checkSize()" id="btn">check size</button>
+<script>
+    const input = document.getElementById("fileInput")
+    const maxFileSize = 204800  // bytes
+    function checkSize(){
+        //file size is in "Bytes"
+        // "files" is an array property which will be populated when a file/files is selected
 
+        // console.log(input.files[0].size )
+        // console.log(maxFileSize)
+        if(input.files[0].size > maxFileSize)
+          return  alert("file size must be less than 200kB")
+    }
+</script>
 </body>
 </html>
